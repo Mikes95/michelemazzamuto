@@ -400,6 +400,22 @@ section h2 {
     font-style: italic;
 }
 
+/* Loading Message */
+.loading-message {
+    text-align: center;
+    padding: 2rem;
+    color: var(--secondary-color);
+}
+
+.loading-message i {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.loading-message p {
+    font-size: 1.1rem;
+}
+
 /* Error Message */
 .error-message {
     text-align: center;
@@ -414,6 +430,13 @@ section h2 {
 
 .error-message p {
     font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+}
+
+.error-details {
+    font-size: 0.9rem !important;
+    color: #666;
+    font-style: italic;
 }
 
 /* Loading Animation */

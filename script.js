@@ -66,11 +66,15 @@ async function loadPublications() {
     publicationsList.classList.add('loading');
     
     try {
-        // Using a CORS proxy to fetch Google Scholar data
-        const proxyUrl = 'https://api.allorigins.win/raw?url=';
+        // Using a different CORS proxy
+        const proxyUrl = 'https://corsproxy.io/?';
         const scholarUrl = encodeURIComponent('https://scholar.google.com/citations?user=Ds2Zhf8AAAAJ&hl=en');
         
         const response = await fetch(proxyUrl + scholarUrl);
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        
         const html = await response.text();
         
         // Create a temporary DOM element to parse the HTML
@@ -105,18 +109,26 @@ async function loadPublications() {
         });
         
         // Sort publications by year (newest first)
-        const sortedPubs = publications.sort((a, b) => b.year - a.year);
+        const sortedPubs = publications.sort((a, b) => {
+            const yearA = parseInt(a.year) || 0;
+            const yearB = parseInt(b.year) || 0;
+            return yearB - yearA;
+        });
         
         // Clear loading state
         publicationsList.classList.remove('loading');
         publicationsList.innerHTML = '';
+        
+        if (sortedPubs.length === 0) {
+            throw new Error('No publications found');
+        }
         
         // Display publications
         sortedPubs.forEach(pub => {
             const pubElement = document.createElement('div');
             pubElement.className = 'publication-item';
             pubElement.innerHTML = `
-                <h3><a href="${pub.link}" target="_blank">${pub.title}</a></h3>
+                <h3><a href="${pub.link}" target="_blank" rel="noopener noreferrer">${pub.title}</a></h3>
                 <p class="authors">${pub.authors}</p>
                 <p class="venue">Year: ${pub.year}</p>
                 <p class="citations">Cited by: ${pub.citations}</p>
@@ -137,6 +149,7 @@ async function loadPublications() {
             <div class="error-message">
                 <i class="fas fa-exclamation-circle"></i>
                 <p>Unable to load publications. Please try again later.</p>
+                <p class="error-details">${error.message}</p>
             </div>
         `;
     }
