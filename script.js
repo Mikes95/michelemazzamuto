@@ -71,13 +71,25 @@ async function loadPublications() {
     console.log('Loading state added');
     
     try {
-        // Using a different CORS proxy
-        const proxyUrl = 'https://corsproxy.io/?';
+        // Using a different CORS proxy with proper headers
+        const proxyUrl = 'https://api.allorigins.win/raw?url=';
         const scholarUrl = encodeURIComponent('https://scholar.google.com/citations?user=Ds2Zhf8AAAAJ&hl=en');
         const fullUrl = proxyUrl + scholarUrl;
         
         console.log('Fetching from URL:', fullUrl);
-        const response = await fetch(fullUrl);
+        const response = await fetch(fullUrl, {
+            method: 'GET',
+            headers: {
+                'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+                'Accept-Language': 'en-US,en;q=0.5',
+                'Cache-Control': 'no-cache',
+                'Pragma': 'no-cache',
+                'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36'
+            },
+            mode: 'cors',
+            credentials: 'omit'
+        });
+        
         console.log('Response status:', response.status);
         
         if (!response.ok) {
@@ -95,6 +107,16 @@ async function loadPublications() {
         // Find all publication entries
         const pubEntries = doc.querySelectorAll('tr.gsc_a_tr');
         console.log('Found publication entries:', pubEntries.length);
+        
+        if (pubEntries.length === 0) {
+            // Try alternative selectors
+            const altEntries = doc.querySelectorAll('.gsc_a_tr');
+            console.log('Alternative selector found entries:', altEntries.length);
+            
+            if (altEntries.length === 0) {
+                throw new Error('No publications found in the response');
+            }
+        }
         
         const publications = [];
         
