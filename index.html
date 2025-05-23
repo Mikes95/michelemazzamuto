@@ -22,6 +22,7 @@
     </nav>
 
     <section id="home" class="hero">
+        <div class="loss-curve"></div>
         <div class="hero-content">
             <div class="profile-container">
                 <div class="profile-image">
@@ -53,7 +54,11 @@
     <section id="about" class="about">
         <div class="container">
             <h2>About Me:</h2>
-            <p>I am a Research Scientist specializing in Computer Vision, Human-Computer Interaction, and Extended Reality. My research focuses on gaze analysis, object detection, and their applications in industrial scenarios and cultural heritage.</p>
+            <p>I am a Research Scientist specializing in Computer Vision, Human-Computer Interaction, and Extended Reality (XR). My research focuses on gaze analysis, vision-language models (VLMs), video understanding, and mixed reality applications.
+
+                I develop intelligent systems that perceive and interpret human behavior from both egocentric and third-person perspectives. My work bridges academic research and applied innovation, targeting industrial environments, cultural heritage, and human performance enhancement through XR technologies.
+                
+                Currently, I am a Senior Computer Vision Scientist at Next Vision, where I contribute to cutting-edge projects integrating visual AI, wearable sensing, and immersive technologies.</p>
         </div>
     </section>
 
@@ -76,6 +81,11 @@
                     <h3>Computer Vision</h3>
                     <p>Object detection and scene understanding in complex environments</p>
                 </div>
+                <div class="research-item">
+                    <i class="fas fa-brain"></i>
+                    <h3>Vision-Language Models</h3>
+                    <p>Multimodal AI systems combining visual perception with natural language understanding</p>
+                </div>
             </div>
         </div>
     </section>
@@ -83,14 +93,108 @@
     <section id="publications" class="publications">
         <div class="container">
             <h2>Selected Publications</h2>
-            <div class="publications-list">
-                <!-- Publications will be loaded here dynamically -->
-                <div class="loading-message">
-                    <i class="fas fa-spinner fa-spin"></i>
-                    <p>Loading publications...</p>
+            <div class="publications-grid">
+                <!-- Featured Publication -->
+                <div class="publication-item featured">
+                    <div class="publication-content">
+                        <span class="badge">Featured</span>
+                        <h3>Gazing Into Missteps: Leveraging Eye-Gaze for Unsupervised Mistake Detection in Egocentric Videos of Skilled Human Activities</h3>
+                        <p class="authors">Michele Mazzamuto, Antonino Furnari, Yoichi Sato, Giovanni Maria Farinella</p>
+                        <p class="venue">CVPR 2024</p>
+                        <div class="publication-links">
+                            <a href="https://arxiv.org/abs/2406.08379" target="_blank" class="btn-link">
+                                <i class="fas fa-file-pdf"></i> Paper
+                            </a>
+                            <a href="https://arxiv.org/abs/2406.08379" target="_blank" class="btn-link">
+                                <i class="fas fa-external-link-alt"></i> arXiv
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Regular Publications -->
+                <div class="publication-item">
+                    <div class="publication-content">
+                        <h3>Enigma-51: Towards a fine-grained understanding of human behavior in industrial scenarios</h3>
+                        <p class="authors">F Ragusa, R Leonardi, M Mazzamuto, C Bonanno, R Scavo, A Furnari, ...</p>
+                        <p class="venue">Proceedings of the IEEE/CVF Winter Conference on Applications of Computer Vision, 2024</p>
+                        <div class="publication-meta">
+                            <span class="year">2024</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="publication-item">
+                    <div class="publication-content">
+                        <h3>Weakly supervised attended object detection using gaze data as annotations</h3>
+                        <p class="authors">M Mazzamuto, F Ragusa, A Furnari, G Signorello, GM Farinella</p>
+                        <p class="venue">International Conference on Image Analysis and Processing, 2022</p>
+                        <div class="publication-meta">
+                            <span class="year">2022</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="publication-item">
+                    <div class="publication-content">
+                        <h3>A Wearable Device Application for Human-Object Interactions Detection</h3>
+                        <p class="authors">M Mazzamuto, F Ragusa, A Resta, GM Farinella, A Furnari</p>
+                        <p class="venue">VISIGRAPP (4: VISAPP), 2023</p>
+                        <div class="publication-meta">
+                            <span class="year">2023</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="publication-item">
+                    <div class="publication-content">
+                        <h3>Learning to detect attended objects in cultural sites with gaze signals and weak object supervision</h3>
+                        <p class="authors">M Mazzamuto*, F Ragusa*, A Furnari*, GM Farinella*</p>
+                        <p class="venue">ACM Journal on Computing and Cultural Heritage 17 (3), 1-21</p>
+                        <div class="publication-meta">
+                            <span class="year">2024</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="publication-item">
+                    <div class="publication-content">
+                        <h3>A Mixed Reality Application to Help Impaired People Rehabilitate Outside Clinical Environments</h3>
+                        <p class="authors">M Mazzamuto, F Ragusa, A Furnari, I D'Ambra, A Guarriera, A Sorbello, ...</p>
+                        <p class="venue">2024 IEEE International Conference on Metrology for eXtended Reality</p>
+                        <div class="publication-meta">
+                            <span class="year">2024</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="publication-item">
+                    <div class="publication-content">
+                        <h3>VALUE: Visual Analysis for Location and Understanding of Environment</h3>
+                        <p class="authors">M Mazzamuto, D Di Mauro, F Ragusa, I D'Ambra, A Sciuto, A Aiello, ...</p>
+                        <p class="venue">2024 IEEE International Conference on Metrology for eXtended Reality</p>
+                        <div class="publication-meta">
+                            <span class="year">2024</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="publication-item">
+                    <div class="publication-content">
+                        <h3>World-Map Misalignment Detection for Visual Navigation Systems</h3>
+                        <p class="authors">R Forte, M Mazzamuto, F Ragusa, GM Farinella, A Furnari</p>
+                        <p class="venue">VISIGRAPP (4): VISAPP, 324-332</p>
+                        <div class="publication-meta">
+                            <span class="year">2024</span>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <a href="https://scholar.google.com/citations?user=Ds2Zhf8AAAAJ&hl=en" class="btn" target="_blank">View All Publications</a>
+            <div class="see-all-container">
+                <a href="https://scholar.google.com/citations?user=Ds2Zhf8AAAAJ&hl=en" target="_blank" class="see-all-btn">
+                    <i class="fas fa-graduation-cap"></i> See All Publications
+                </a>
+            </div>
         </div>
     </section>
 
